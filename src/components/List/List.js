@@ -1,13 +1,22 @@
-import M from './M'
-const List = (props) => {
+import classes from './List.module.scss'
+import { Link } from 'react-router-dom'
+
+const List = ({ image, title, id }) => {
+
 
     return (
-        <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr 1fr'
-        }}>
-            {props.animes.map(a => <M key={a.id} a={a} />)}
+
+        <div>
+            <Link to={`/${id}`}>
+                <img
+                    src={image.small}
+                    alt={title}
+                    loading="lazy"
+                />
+            </Link>
+            <p><b> {title} </b></p>
         </div>
+
     )
 }
 

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import Search from './components/Search/Search'
+import Anime from './components/Anime/Anime'
 
 
 
@@ -16,12 +17,15 @@ const App = () => {
             <Header />
             <Switch>
 
+                <Route path='/:a(\d+)' exact>
+                    <Anime />
+                </Route>
 
                 <Route path='/:a([\w\W]+)' exact>
                     <Search />
                 </Route>
 
-                <Route path='/'>
+                <Route path='/' >
                     <Main />
                 </Route>
 

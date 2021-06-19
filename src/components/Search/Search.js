@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import List from '../List/List'
+import Animes from '../Animes/Animes'
 import getAnimes from "../getter/getter"
 
 const searchedAnimes = []
-let limit
+const limit = []
 const Search = props => {
     // eslint-disable-next-line no-restricted-globals
     let anime = location.pathname.split('/')[1]
@@ -22,17 +22,16 @@ const Search = props => {
         if (path !== searched && path !== '') setSearched(path)
     }, 50)
 
-    const wheeler = async () => {
-        if (window.innerHeight + window.scrollY > document.body.offsetHeight - 500 && animes.length < limit) {
-            await setAnimes(animes.concat(searchedAnimes.slice(animes.length, animes.length + 20)))
-
+    const wheeler = () => {
+        if (window.innerHeight + window.scrollY > document.body.offsetHeight - 500 && animes.length <= limit[0]) {
+            setAnimes(animes.concat(searchedAnimes.slice(animes.length, animes.length + 20)))
         }
     }
 
     return (
         <div onWheel={wheeler}>
             {!animes.length ? <p>Loading...</p> :
-                <List animes={animes} />
+                <Animes animes={animes} />
             }
         </div>
     )

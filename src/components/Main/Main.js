@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import List from '../List/List'
+import Animes from '../Animes/Animes'
 import getAnimes from "../getter/getter"
 
 const allAnimes = []
@@ -10,16 +10,16 @@ const Main = props => {
         getAnimes(allAnimes, setAnimes)
     }, [])
 
-    const wheeler = async () => {
+    const wheeler = () => {
         if (window.innerHeight + window.scrollY > document.body.offsetHeight - 1000) {
-            await setAnimes(animes.concat(allAnimes.slice(animes.length, animes.length + 20)))
+            setAnimes(animes.concat(allAnimes.slice(animes.length, animes.length + 20)))
         }
     }
 
     return (
         <div onWheel={wheeler}>
             {animes.length < 20 ? <p>Loading...</p> :
-                <List animes={animes} />
+                <Animes animes={animes} />
             }
         </div>
     )
