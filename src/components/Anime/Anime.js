@@ -41,13 +41,13 @@ const Anime = () => {
             :
             <div>
                 {/* // className={classes.flex}> */}
-                <img src={data.posterImage.original} alt="img" height="400vh" width="300vw" />
+                <img src={data?.posterImage?.original} alt="img" height="400vh" width="300vw" />
                 <div>
                     {/* Title */}
                     <p><strong>{data.canonicalTitle}</strong> [<small>{rated}</small>]</p>
 
                     {/* Story */}
-                    <p>{data.synopsis.split('(')[0]}</p>
+                    <p>{data.synopsis.split('(')[data.synopsis.split('(').length - 1].includes('Source') ? data.synopsis.split('(')[0] : data.synopsis}</p>
 
                     {/* Rating */}
                     {data.averageRating && <p><strong>Rating:</strong> {(parseFloat(data.averageRating) / 10).toFixed(2)}</p>}
@@ -66,6 +66,9 @@ const Anime = () => {
 
                     {/* Rating Rank */}
                     <p><strong>Rating Rank:</strong>{data.ratingRank}</p>
+
+                    {/* Trailer */}
+                    {data.youtubeVideoId && (<iframe width="560" height="315" src={`https://www.youtube.com/embed/${data.youtubeVideoId}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>)}
                 </div>
             </div>
 

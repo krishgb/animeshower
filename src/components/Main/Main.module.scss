@@ -1,0 +1,38 @@
+.list {
+  display: inline-block;
+  max-width: 12.5rem;
+  margin: 0.2em;
+  padding: 0.5em;
+  box-sizing: border-box;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+
+    &:hover {
+      transform: scale(1.18);
+      transition: 0.4s all ease-in-out;
+    }
+  }
+
+  .title {
+    color: black;
+    font-size: 0.9em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  @media (max-width: 400px) {
+    & {
+      max-width: 15rem;
+      padding: 0 2em;
+    }
+    img {
+      width: 120%;
+    }
+  }
+}

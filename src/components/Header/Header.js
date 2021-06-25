@@ -5,27 +5,20 @@ const Header = ({ formHandler }) => {
     const [value, setValue] = useState('')
 
     const changeHandler = event => {
-        const iValue = event.target.value.trim().toLowerCase().split(' ').join('-')
+        const iValue = event.target.value.trim()
         iValue.length && setValue(iValue)
     }
 
     return (
-        // <Router>
-        <>
-            <h1>Weeb</h1>
-            <form onSubmit={(event) => event.preventDefault()}>
-                <input type="text" onChange={changeHandler} />
-                <Link to={`/${value}`}>
-                    <button>
+        <form onSubmit={(event) => event.preventDefault()}>
+            <input type="text" onChange={changeHandler} />
+            <Link to={`/a/${value.toLowerCase().split(' ').join('-')}`}>
+                <button>
+                    Search
+                </button>
+            </Link>
 
-                        Search
-
-                    </button>
-                </Link>
-
-            </form>
-        </>
-        // </Router>
+        </form>
     )
 }
 export default Header

@@ -1,28 +1,95 @@
-import { useEffect, useState } from "react"
+import { useState, useReducer, useRef, useCallback, useEffect } from 'react'
 import Animes from '../Animes/Animes'
-import getAnimes from "../getter/getter"
+import { get } from '../getter/getter'
 
-const allAnimes = []
-const Main = props => {
-    const [animes, setAnimes] = useState([])
-
-    useEffect(() => {
-        getAnimes(allAnimes, setAnimes)
-    }, [])
-
-    const wheeler = () => {
-        if (window.innerHeight + window.scrollY > document.body.offsetHeight - 1000) {
-            setAnimes(animes.concat(allAnimes.slice(animes.length, animes.length + 20)))
-        }
-    }
-
-    return (
-        <div onWheel={wheeler}>
-            {animes.length < 20 ? <p>Loading...</p> :
-                <Animes animes={animes} />
-            }
-        </div>
-    )
+const searchItems = {
+    RATE: 'ratingRank',
+    POPULAR: 'popularityRank',
+    FAVORITE: '-favoritesCount',
+    START: '-startDate'
 }
 
-export default Main
+const reducerFunctions = {
+    GET: 'GET_ANIMES',
+    UPDATE: 'UPDATE_ANIMES',
+}
+
+const [BASE, FILTERS] = ['https://kitsu.io/api/edge/anime/?sort=', '&page%5Blimit%5D=20&page%5Boffset%5D=']
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case reducerFunctions.GET:
+            return {
+                animes: action.payload,
+            }
+        case reducerFunctions.UPDATE:
+            return {
+                animes: state.animes.concat(action.payload)
+            }
+        default:
+            return state
+    }
+}
+
+export default function Random() {
+
+    const sortBy = sessionStorage.getItem('sortBy')
+
+    const [state, dispatch] = useReducer(reducer, { animes: [] })
+    const [loading, setLoading] = useState(true)
+    const [sort, setSort] = useState(sortBy ? sortBy : searchItems.RATE)
+    const observe = useRef()
+
+    const getAnime = async (array, reducerFunction) => {
+        setLoading(true)
+        const $ = await get(BASE + sort + FILTERS + array.length)
+        dispatch({
+            type: reducerFunction,
+            payload: await $.data
+        })
+        setLoading(false)
+    }
+
+    const refElement = useCallback(node => {
+        if (loading) return
+        if (observe.current) observe.current.disconnect()
+        observe.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                getAnime(state.animes, reducerFunctions.UPDATE)
+            }
+        })
+        if (node) observe.current.observe(node)
+    }, [loading])
+
+
+    useEffect(() => {
+        getAnime([], reducerFunctions.GET)
+    }, [sort])
+
+
+    const selectHandler = (event) => {
+        setSort(event.target.value)
+        sessionStorage.setItem('sortBy', event.target.value)
+    }
+
+
+    return (
+        <>
+            <div>
+                <label>Sort by &nbsp;
+                    <select onChange={selectHandler} value={sortBy ? sortBy : searchItems.RATE}>
+                        <option value={searchItems.RATE}>Rating</option>
+                        <option value={searchItems.POPULAR}>Popularity</option>
+                        <option value={searchItems.FAVORITE}>Most Favorite</option>
+                        <option value={searchItems.START}>Upcoming & New</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <Animes animes={state.animes} animeRef={refElement} />
+                {loading && <p>Loading...</p>
+                }
+            </div>
+        </>
+    )
+}

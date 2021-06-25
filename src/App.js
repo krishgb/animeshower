@@ -14,14 +14,15 @@ const App = () => {
     return (
 
         <BrowserRouter>
+            <h1>AS</h1>
             <Header />
             <Switch>
 
-                <Route path='/:a(\d+)' exact>
+                <Route path='/a/:a(\d+)' exact>
                     <Anime />
                 </Route>
 
-                <Route path='/:a([\w\W]+)' exact>
+                <Route path='/a/:a([\w\W]+)' exact>
                     <Search />
                 </Route>
 
