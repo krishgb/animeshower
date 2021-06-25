@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-// import classes from './Anime.module.scss'
+import classes from './Anime.module.scss'
 
 
 const Anime = () => {
@@ -36,40 +36,53 @@ const Anime = () => {
     }, [url])
 
     return (
-        !data ?
-            <p>Loading...</p>
-            :
-            <div>
-                {/* // className={classes.flex}> */}
-                <img src={data?.posterImage?.original} alt="img" height="400vh" width="300vw" />
-                <div>
-                    {/* Title */}
-                    <p><strong>{data.canonicalTitle}</strong> [<small>{rated}</small>]</p>
+        !data ? <p>Loading...</p> :
 
-                    {/* Story */}
-                    <p>{data.synopsis.split('(')[data.synopsis.split('(').length - 1].includes('Source') ? data.synopsis.split('(')[0] : data.synopsis}</p>
+            //.anime
+            <div className={classes.anime}>
+                {/* .g */}
+                <div className={classes.g} style={{ background: `url(${data?.posterImage?.original}) 0/ cover fixed` }}>
+                    {/* .h */}
+                    <div className={classes.h}>
+                        <img src={data?.posterImage?.original} alt="img" height="400vh" width="300vw" />
+                        {/* .attributes */}
+                        <div className={classes.attributes}>
 
-                    {/* Rating */}
-                    {data.averageRating && <p><strong>Rating:</strong> {(parseFloat(data.averageRating) / 10).toFixed(2)}</p>}
+                            <p style={{ textAlign: 'center' }}><strong>{data.canonicalTitle}</strong> [<small>{rated}</small>]</p>
 
-                    {/* Aired Date */}
-                    <p><strong>Aired:</strong> {new Date(data.startDate).toDateString().slice(3)} </p>
+                            <p><b>Description: </b> {data.synopsis.split('(')[data.synopsis.split('(').length - 1].includes('Source') ? data.synopsis.split('(')[0] : data.synopsis}</p>
 
-                    {/* End Date */}
-                    {data.endDate && data.endDate !== data.startDate && <p><strong>End:</strong> {new Date(data.endDate).toDateString().slice(3)}</p>}
+                            {data.averageRating && <p><strong>Rating:</strong> {(parseFloat(data.averageRating) / 10).toFixed(2)}</p>}
 
-                    {/* Next Release */}
-                    {data.nextRelease && <p><strong>Next Release:</strong> {new Date(data.nextRelease.slice(0, 10)).toDateString().slice(3)}</p>}
+                            <p><strong>Aired: </strong> {new Date(data.startDate).toDateString().slice(3)} </p>
 
-                    {/* Popularity Ranking */}
-                    <p><strong>Popularity Ranking:</strong> {data.popularityRank}</p>
+                            {data.endDate && data.endDate !== data.startDate && <p><strong>End: </strong> {new Date(data.endDate).toDateString().slice(3)}</p>}
 
-                    {/* Rating Rank */}
-                    <p><strong>Rating Rank:</strong>{data.ratingRank}</p>
+                            {data.nextRelease && <p><strong>Next Release: </strong> {new Date(data.nextRelease.slice(0, 10)).toDateString().slice(3)}</p>}
 
-                    {/* Trailer */}
-                    {data.youtubeVideoId && (<iframe width="560" height="315" src={`https://www.youtube.com/embed/${data.youtubeVideoId}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>)}
+                            <p><strong>Popularity Ranking: </strong> {data.popularityRank}</p>
+
+                            <p><strong>Rating Rank: </strong>{data.ratingRank}</p>
+
+                        </div>
+                    </div>
                 </div>
+                {/* .video */}
+
+                {data.youtubeVideoId && (
+                    <div className={classes.video}>
+                        <iframe
+                            width="560"
+                            height="315"
+                            src={`https://www.youtube.com/embed/${data.youtubeVideoId}`}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen>
+                        </iframe>
+                    </div>
+                )}
+
             </div>
 
 

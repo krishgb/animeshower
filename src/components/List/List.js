@@ -10,7 +10,7 @@ const List = ({ image, title, id, reference }) => {
             <Link to={`/a/${id}`} style={{ textDecoration: 'none' }}>
                 <div className={classes.img}>
                     <img
-                        src={image?.medium}
+                        src={image?.original}
                         alt={title}
                         loading="lazy"
                     />

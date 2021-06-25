@@ -8,29 +8,27 @@ import Anime from './components/Anime/Anime'
 
 
 const App = () => {
-
-
-
     return (
 
         <BrowserRouter>
-            <h1>AS</h1>
-            <Header />
-            <Switch>
+            <div>
+                <Header />
+                <Switch>
 
-                <Route path='/a/:a(\d+)' exact>
-                    <Anime />
-                </Route>
+                    <Route path='/a/:a(\d+)' exact>
+                        <Anime />
+                    </Route>
 
-                <Route path='/a/:a([\w\W]+)' exact>
-                    <Search />
-                </Route>
+                    <Route path='/a/:a([\w\W]+)' exact>
+                        <Search />
+                    </Route>
 
-                <Route path='/' >
-                    <Main />
-                </Route>
+                    <Route path='/' >
+                        <Main />
+                    </Route>
 
-            </Switch>
+                </Switch>
+            </div>
         </BrowserRouter>
     )
 
