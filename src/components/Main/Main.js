@@ -1,6 +1,7 @@
 import { useState, useReducer, useRef, useCallback, useEffect } from 'react'
 import Animes from '../Animes/Animes'
 import { get } from '../getter/getter'
+import classes from './Main.module.scss'
 
 const searchItems = {
     RATE: 'ratingRank',
@@ -74,8 +75,8 @@ export default function Random() {
 
 
     return (
-        <>
-            <div>
+        <div className={classes.main}>
+            <div className={classes.sortby}>
                 <label>Sort by &nbsp;
                     <select onChange={selectHandler} value={sortBy ? sortBy : searchItems.RATE}>
                         <option value={searchItems.RATE}>Rating</option>
@@ -85,11 +86,11 @@ export default function Random() {
                     </select>
                 </label>
             </div>
-            <div>
+            <div className={classes.animes}>
                 <Animes animes={state.animes} animeRef={refElement} />
                 {loading && <p>Loading...</p>
                 }
             </div>
-        </>
+        </div>
     )
 }
