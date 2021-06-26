@@ -1,15 +1,63 @@
+// .list {
+//   text-align: center;
+//   box-sizing: border-box;
+//   width: 12rem;
+//   margin: 1rem auto 0.4rem auto;
+
+//   img {
+//     background: white;
+//     border-radius: 5px;
+//     object-fit: fill;
+//     width: 100%;
+//     height: 80%;
+//     box-shadow: 5px 0 5px -5px black, -5px 0 5px -5px black;
+
+//     &:hover {
+//       transform: scale(1.18);
+//       transition: 0.4s all ease-in-out;
+//       box-shadow: none;
+//     }
+//   }
+
+//   .title {
+//     color: gray;
+//     font-weight: inherit;
+//     font-size: 0.85rem;
+//     text-align: center;
+//     max-width: 100%;
+
+//     &:hover {
+//       color: white;
+//       font-size: 0.88rem;
+//     }
+//   }
+
+//   @media (max-width: 415px) {
+//     & {
+//       width: 8rem;
+//     }
+
+//     img {
+//       width: 100%;
+//       height: 80%;
+//     }
+
+//     .title {
+//       font-size: xx-small;
+//     }
+//   }
+// }
+
 .list {
-  text-align: center;
-  box-sizing: border-box;
-  width: 12rem;
-  margin: 1rem auto 0.4rem auto;
+  flex: 0 1 12rem;
+  margin-bottom: 2rem;
 
   img {
-    background: yellow;
-    border-radius: 5px;
-    object-fit: fill;
+    height: 17.5rem;
+    aspect-ratio: 4/6;
     width: 100%;
-    height: 80%;
+    background: white;
+    border-radius: 5px;
     box-shadow: 5px 0 5px -5px black, -5px 0 5px -5px black;
 
     &:hover {
@@ -20,38 +68,24 @@
   }
 
   .title {
-    color: gray;
+    color: mediumspringgreen;
+    z-index: 5;
+    opacity: 0.8;
     font-weight: inherit;
     font-size: 0.85rem;
     text-align: center;
     max-width: 100%;
 
     &:hover {
-      color: white;
-      font-size: 0.88rem;
+      opacity: 1;
     }
   }
 
-  @media (max-width: 415px) {
-    & {
-      width: 8rem;
-    }
+  @media (max-width: 460px) {
+    flex: 0 1 9.7rem;
 
     img {
-      width: 100%;
-      height: 80%;
+      height: 14rem;
     }
-
-    .title {
-      font-size: xx-small;
-    }
-  }
-}
-
-.ctitle {
-  margin-bottom: -2rem;
-  .cimg {
-    width: 100%;
-    height: 70%;
   }
 }

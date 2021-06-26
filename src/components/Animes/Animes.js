@@ -1,9 +1,8 @@
 import List from '../List/List'
 import classes from './Animes.module.scss'
 
-const Animes = ({ animes, animeRef, cate }) => {
+const Animes = ({ animes, animeRef }) => {
 
-    const c = cate === 'ratingRank' ? 'add' : null
     return (
         <div className={classes.animes}>
 
@@ -13,7 +12,6 @@ const Animes = ({ animes, animeRef, cate }) => {
 
                     animes.length - 15 === index ?
                         <List
-                            add={index < 6 && c}
                             reference={animeRef}
                             key={anime.id}
                             image={posterImage}
@@ -21,7 +19,6 @@ const Animes = ({ animes, animeRef, cate }) => {
                             id={anime.id} />
                         :
                         <List
-                            add={index < 6 && c}
                             key={anime.id}
                             image={posterImage}
                             title={titles.en ? titles.en : canonicalTitle}

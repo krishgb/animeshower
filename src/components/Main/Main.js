@@ -1,7 +1,8 @@
-import { useState, useReducer, useRef, useCallback, useEffect } from 'react'
-import Animes from '../Animes/Animes'
+import { useState, useReducer, useRef, useCallback, useEffect, lazy, Suspense } from 'react'
 import { get } from '../getter/getter'
 import classes from './Main.module.scss'
+
+const Animes = lazy(() => import('../Animes/Animes'))
 
 const searchItems = {
     RATE: 'ratingRank',
@@ -87,8 +88,9 @@ export default function Random() {
                 </label>
             </div>
             <div className={classes.animes}>
-                <Animes animes={state.animes} animeRef={refElement} cate={sort} />
-                {loading && <p>Loading...</p>}
+                <Suspense fallback={<div>Loading</div>}>
+                    <Animes animes={state.animes} animeRef={refElement} />
+                </Suspense>
             </div>
         </div>
     )
