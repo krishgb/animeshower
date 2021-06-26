@@ -10,7 +10,10 @@
 
   h1 {
     color: turquoise;
+    font-size: 2rem;
+    text-transform: uppercase;
     text-shadow: 0 0 0.1em, 0 0 0.3em;
+    -webkit-text-stroke: 0.2px white;
   }
 
   form {
@@ -32,6 +35,19 @@
       border-radius: 5px;
       background: rgb(18, 18, 18);
       color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 898px) {
+      input {
+        width: 40%;
+      }
+    }
+
+    @media (max-width: 368px) {
+      input {
+        width: 20%;
+      }
     }
   }
 }

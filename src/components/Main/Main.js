@@ -87,9 +87,8 @@ export default function Random() {
                 </label>
             </div>
             <div className={classes.animes}>
-                <Animes animes={state.animes} animeRef={refElement} />
-                {loading && <p>Loading...</p>
-                }
+                <Animes animes={state.animes} animeRef={refElement} cate={sort} />
+                {loading && <p>Loading...</p>}
             </div>
         </div>
     )

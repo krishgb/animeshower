@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { get } from '../getter/getter'
 import Animes from '../Animes/Animes'
+import classes from './Search.module.scss'
 
 const [BASE, FILTERS] = ['https://kitsu.io/api/edge/anime/?filter%5Btext%5D=', '&page%5Blimit%5D=20&page%5Boffset%5D=']
 
@@ -57,7 +58,7 @@ const Search = () => {
 
 
     return (
-        <div>
+        <div className={classes.animes}>
             <Animes animes={animes} animeRef={last} />
             {(loading & count > animes.length) ? <p>Loading...</p> : null}
         </div>

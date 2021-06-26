@@ -37,38 +37,40 @@ const Anime = () => {
 
     return (
         !data ? <p>Loading...</p> :
+            <>
+                {/* //.anime */}
+                <div className={classes.anime}>
+                    {/* .g */}
+                    <div className={classes.g} style={{ background: `url(${data?.posterImage?.original}) 0/ cover fixed` }}>
+                        {/* .h */}
+                        <div className={classes.h}>
+                            <img src={data?.posterImage?.original} alt="img" height="400vh" width="300vw" />
+                            {/* .attributes */}
+                            <div className={classes.attributes}>
 
-            //.anime
-            <div className={classes.anime}>
-                {/* .g */}
-                <div className={classes.g} style={{ background: `url(${data?.posterImage?.original}) 0/ cover fixed` }}>
-                    {/* .h */}
-                    <div className={classes.h}>
-                        <img src={data?.posterImage?.original} alt="img" height="400vh" width="300vw" />
-                        {/* .attributes */}
-                        <div className={classes.attributes}>
+                                <p style={{ textAlign: 'center' }}><strong>{data.canonicalTitle}</strong> [<small>{rated}</small>]</p>
 
-                            <p style={{ textAlign: 'center' }}><strong>{data.canonicalTitle}</strong> [<small>{rated}</small>]</p>
+                                <p><b>Description: </b> {data.synopsis.split('(')[data.synopsis.split('(').length - 1].includes('Source') ? data.synopsis.split('(')[0] : data.synopsis}</p>
 
-                            <p><b>Description: </b> {data.synopsis.split('(')[data.synopsis.split('(').length - 1].includes('Source') ? data.synopsis.split('(')[0] : data.synopsis}</p>
+                                {data.averageRating && <p><strong>Rating:</strong> {(parseFloat(data.averageRating) / 10).toFixed(2)}</p>}
 
-                            {data.averageRating && <p><strong>Rating:</strong> {(parseFloat(data.averageRating) / 10).toFixed(2)}</p>}
+                                <p><strong>Aired: </strong> {new Date(data.startDate).toDateString().slice(3)} </p>
 
-                            <p><strong>Aired: </strong> {new Date(data.startDate).toDateString().slice(3)} </p>
+                                {data.endDate && data.endDate !== data.startDate && <p><strong>End: </strong> {new Date(data.endDate).toDateString().slice(3)}</p>}
 
-                            {data.endDate && data.endDate !== data.startDate && <p><strong>End: </strong> {new Date(data.endDate).toDateString().slice(3)}</p>}
+                                {data.nextRelease && <p><strong>Next Release: </strong> {new Date(data.nextRelease.slice(0, 10)).toDateString().slice(3)}</p>}
 
-                            {data.nextRelease && <p><strong>Next Release: </strong> {new Date(data.nextRelease.slice(0, 10)).toDateString().slice(3)}</p>}
+                                <p><strong>Popularity Ranking: </strong> {data.popularityRank}</p>
 
-                            <p><strong>Popularity Ranking: </strong> {data.popularityRank}</p>
+                                <p><strong>Rating Rank: </strong>{data.ratingRank}</p>
 
-                            <p><strong>Rating Rank: </strong>{data.ratingRank}</p>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-                {/* .video */}
+                    {/* .video */}
 
+
+                </div>
                 {data.youtubeVideoId && (
                     <div className={classes.video}>
                         <iframe
@@ -82,9 +84,7 @@ const Anime = () => {
                         </iframe>
                     </div>
                 )}
-
-            </div>
-
+            </>
 
     )
 }

@@ -1,9 +1,8 @@
 .main {
-  margin: 6rem auto;
-
+  margin: 6rem 1rem;
   .sortby {
     color: orange;
-    margin: auto 0 -5rem 3.5rem;
+    margin: auto 0 -5rem 2rem;
 
     select {
       border: none;
@@ -16,35 +15,6 @@
   }
 
   .animes {
-    img {
-      height: 16.8rem;
-      width: 100%;
-      object-fit: fill;
-
-      &:hover {
-        transform: scale(1.18);
-        transition: 0.4s all ease-in-out;
-      }
-    }
-
-    .title {
-      color: black;
-      font-size: 0.9em;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-    }
-
-    @media (max-width: 400px) {
-      & {
-        max-width: 15rem;
-        padding: 0 2em;
-      }
-      img {
-        width: 120%;
-      }
-    }
+    margin: 6rem auto;
   }
 }
