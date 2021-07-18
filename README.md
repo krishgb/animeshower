@@ -1,3 +1,11 @@
+# Animeshower
+
+Just a webpage with animes and its details.
+
+Uses [Kitsu API](https://kitsu.docs.apiary.io).
+
+[Check the website](https://animeshower.web.app)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
