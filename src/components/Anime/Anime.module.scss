@@ -1,6 +1,3 @@
-.parent {
-  // background: black;
-}
 .anime {
   margin: 5rem auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -33,9 +30,9 @@
         text-align: justify;
         line-height: 1.5rem;
         max-width: 50%;
-        max-height: 70%;
         overflow: scroll;
         resize: both;
+        height: 25rem;
         scroll-behavior: smooth;
         font-size: 1rem;
         padding: 15px;
@@ -62,10 +59,9 @@
   .anime {
     .g {
       margin: 0;
-      // background: none;
       .h {
         display: grid;
-        // background: none;
+        gap: 2rem;
         img {
           margin: 0 auto;
           width: auto;
@@ -73,7 +69,7 @@
         .attributes {
           border-radius: 0;
           margin: auto;
-          max-width: 80%;
+          max-width: 88%;
         }
       }
     }
@@ -81,8 +77,11 @@
 
   .video {
     iframe {
-      width: 80%;
+      // margin: auto;
+      border: none;
+      width: 100%;
       height: auto;
+      aspect-ratio: 16 /9;
     }
   }
 }

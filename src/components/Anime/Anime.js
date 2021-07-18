@@ -84,7 +84,7 @@ const Anime = () => {
 
                                     <p><strong>Rating Rank: </strong>{data.ratingRank}</p>
 
-                                    {otherDetails.studio && <p><strong>Studio: </strong> {otherDetails.studio}</p>}
+                                    {otherDetails.studio && <p><strong>Studio: </strong> {otherDetails.studio.toUpperCase()}</p>}
 
                                     {otherDetails.genres && <p><strong>Genre: </strong> {otherDetails.genres}</p>}
 
