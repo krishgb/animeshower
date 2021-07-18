@@ -78,7 +78,7 @@ export default function Random() {
     return (
         <div className={classes.main}>
             <div className={classes.sortby}>
-                <label>Sort by &nbsp;
+                <label>Filter&nbsp;
                     <select onChange={selectHandler} value={sortBy ? sortBy : searchItems.RATE}>
                         <option value={searchItems.RATE}>Rating</option>
                         <option value={searchItems.POPULAR}>Popularity</option>
@@ -89,7 +89,9 @@ export default function Random() {
             </div>
             <div className={classes.animes}>
                 <Suspense fallback={<div>Loading</div>}>
-                    <Animes animes={state.animes} animeRef={refElement} />
+
+                    <Animes animes={state.animes} animeRef={refElement} loading={loading} />
+                    {loading && <p style={{ marginLeft: "2rem" }}>Loading . . .</p>}
                 </Suspense>
             </div>
         </div>

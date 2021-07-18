@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <div className={classes.main}>
-            <h1 contentEditable>Weeb</h1>
+            <h1>Weeb</h1>
             <form onSubmit={(event) => event.preventDefault()}>
                 <input type="text" onChange={changeHandler} placeholder="Search..." />
                 <Link to={`/a/${value.toLowerCase().split(' ').join('-')}`}>

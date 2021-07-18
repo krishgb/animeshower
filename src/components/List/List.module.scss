@@ -1,11 +1,11 @@
 .list {
-  flex: 0 1 12rem;
-  margin-bottom: 2rem;
-
+  font-family: "Mitr", sans-serif;
+  width: 12rem;
+  margin-bottom: 1rem;
   img {
-    height: 17.5rem;
-    aspect-ratio: 4/6;
     width: 100%;
+    aspect-ratio: 4/5.5;
+
     background: white;
     border-radius: 5px;
     box-shadow: 5px 0 5px -5px black, -5px 0 5px -5px black;
@@ -31,11 +31,15 @@
     }
   }
 
-  @media (max-width: 460px) {
-    flex: 0 1 9.7rem;
+  @media (max-width: 541px) {
+    width: 10rem;
 
     img {
-      height: 14rem;
+      width: 100%;
+    }
+
+    .title {
+      opacity: 1;
     }
   }
 }

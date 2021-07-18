@@ -8,9 +8,9 @@ const List = ({ image, title, id, reference }) => {
         <div className={classes.list} ref={reference && reference}>
             <Link to={`/a/${id}`} style={{ textDecoration: 'none' }}>
                 <img
-                    src={image?.original}
+                    src={image?.small}
                     alt={title}
-                    loading="early"
+                    loading="lazy"
                 />
                 <p className={`${classes.title}`}>{title}</p>
             </Link>
