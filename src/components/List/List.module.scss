@@ -5,16 +5,19 @@
   img {
     width: 100%;
     aspect-ratio: 4/5.5;
-    // aspect-ratio: 9/13;
 
     background: white;
-    border-radius: 5px;
-    box-shadow: 5px 0 1px -4px black, -5px 0 1px -4px black;
+    border-radius: 1px;
+    box-shadow: 10px 10px 5px -5px black;
     transition: 0.3s all ease-in-out;
 
     &:hover {
       transform: scale(1.18);
       box-shadow: none;
+
+      .title {
+        opacity: 1;
+      }
     }
   }
 

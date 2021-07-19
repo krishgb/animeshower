@@ -35,7 +35,7 @@ async function getProducer(id, hof) {
         hof(prev => {
             return {
                 ...prev,
-                studio: studios.data.attributes.name,
+                studio: studios?.data?.attributes?.name,
             }
         })
     } catch (err) {

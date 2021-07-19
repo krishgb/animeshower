@@ -29,8 +29,7 @@
         text-align: justify;
         line-height: 1.5rem;
         max-width: 50%;
-        overflow: scroll;
-        resize: both;
+        overflow-y: scroll;
         height: 25rem;
         scroll-behavior: smooth;
         font-size: 1rem;
@@ -38,6 +37,28 @@
         border-radius: 5px;
         background: #12181b;
         color: white;
+
+        b,
+        strong {
+          color: mediumspringgreen;
+          margin-left: 12px;
+        }
+
+        @media (min-width: 542px) {
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: inherit;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: grey;
+            border-radius: 20px;
+            border: 1px solid black;
+          }
+        }
       }
     }
   }

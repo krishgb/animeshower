@@ -32,3 +32,17 @@ code {
     background: rgba(0, 0, 0, 0.85);
   }
 }
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 20px;
+  border: 1px solid black;
+}
