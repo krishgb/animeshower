@@ -8,7 +8,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #22303c;
+  background: #12181b;
+  /* background: #22303c; */
   color: white;
   font-family: "Mitr", cursive, monospace, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,4 +19,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+::selection {
+  background: mediumspringgreen;
+  color: black;
+}
+
+@media (max-width: 541px) {
+  body {
+    background: #22303c;
+    background: rgba(0, 0, 0, 0.85);
+  }
 }

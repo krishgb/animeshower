@@ -5,7 +5,7 @@ import classes from './Search.module.scss'
 
 const [BASE, FILTERS] = ['https://kitsu.io/api/edge/anime/?filter%5Btext%5D=', '&page%5Blimit%5D=20&page%5Boffset%5D=']
 
-const Search = () => {
+export default function Search() {
 
     const [animes, setAnimes] = useState([])
     const [loading, setLoading] = useState(false)
@@ -64,5 +64,3 @@ const Search = () => {
         </div>
     )
 }
-
-export default Search

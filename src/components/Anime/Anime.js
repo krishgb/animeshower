@@ -54,8 +54,8 @@ const Anime = () => {
     }, [url])
 
     return (
-        !data ? <p>Loading...</p> :
-            <>
+        <>
+            {!data ? <p>Loading...</p> :
                 <div className={classes.parent}>
 
                     {/* //.anime */}
@@ -116,7 +116,7 @@ const Anime = () => {
                                 <iframe
                                     width="560"
                                     height="315"
-                                    src={`https://www.youtube.com/embed/${data.youtubeVideoId}`}
+                                    src={`https://www.youtube.com/embed/${data?.youtubeVideoId}`}
                                     title="YouTube video player"
                                     frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -127,7 +127,8 @@ const Anime = () => {
                         )
                     }
                 </div>
-            </>
+            }
+        </>
 
     )
 }

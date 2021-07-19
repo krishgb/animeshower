@@ -33,7 +33,7 @@ const reducer = (state, action) => {
     }
 }
 
-export default function Random() {
+export default function Main() {
 
     const sortBy = sessionStorage.getItem('sortBy')
 

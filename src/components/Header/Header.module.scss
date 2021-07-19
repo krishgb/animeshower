@@ -1,8 +1,9 @@
 .main {
   top: 0;
-  position: fixed;
+  position: sticky;
   width: 100%;
-  background: #223038;
+  background: #121819;
+  // background: #223038;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -19,9 +20,11 @@
 
   form {
     width: 50%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     input {
-      margin: 5px;
+      margin-right: 5px;
       width: 75%;
       padding: 1em;
       border: 1px solid grey;
@@ -31,21 +34,33 @@
     }
 
     button {
-      padding: 1.1em;
+      padding: 1em;
       border: none;
       border-radius: 5px;
-      background: rgb(18, 18, 18);
-      color: white;
+      color: black;
       cursor: pointer;
+      background: white;
+      height: inherit;
+      box-sizing: border-box;
+      max-height: inherit;
     }
+  }
 
-    @media (max-width: 898px) {
-      input {
-        width: 40%;
+  @media (max-width: 898px) {
+    input {
+      width: 40%;
+    }
+  }
+
+  @media (max-width: 541px) {
+    & {
+      height: 60px;
+      padding-top: 0.4rem;
+      // background: #223038;
+
+      h1 {
+        font-size: 1.5rem;
       }
-    }
-
-    @media (max-width: 368px) {
       input {
         width: 20%;
       }

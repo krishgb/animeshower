@@ -40,7 +40,6 @@ async function getProducer(id, hof) {
         })
     } catch (err) {
         console.log("STUDIO", err)
-        alert(err)
     }
 }
 

@@ -4,7 +4,11 @@
   justify-content: space-between;
   margin: auto 1rem;
 
-  @media (max-width: 405px) {
-    margin: auto 5px;
+  @media (max-width: 520px) {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 1rem;
   }
 }
