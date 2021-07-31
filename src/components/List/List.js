@@ -6,7 +6,7 @@ const List = ({ image, title, id, reference }) => {
     return (
 
         <div className={classes.list} ref={reference && reference}>
-            <Link to={`/a/${id}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <Link to={`/a/${id}`} style={{ textDecoration: 'none' }}>
                 <img
                     src={image?.small}
                     alt={title}
